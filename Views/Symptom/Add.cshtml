@@ -1,0 +1,62 @@
+﻿@model SymTom.ViewModels.AddSymptomViewModel
+
+
+
+
+<h1>Select a Body Part</h1>
+<img src="https://pbs.twimg.com/media/DwFkv2uUcAAZi0O.jpg" width="610" height="610" alt="Body" usemap="#bodymap">
+
+<map name="bodymap">
+    <!--Pink-->
+    <area shape="circle" coords="194,90,15" onclick="myFunction('Head')">
+    <area shape="circle" coords="413,77,15" onclick="myFunction('Head')">
+    <!--Hot Pink-->
+    <area shape="rect" coords="151,116,242,141" onclick="myFunction('Neck')">
+    <area shape="rect" coords="367,143,460,112" onclick="myFunction('Neck')">
+
+    <!--Orange-->
+    <area shape="rect" coords="349,190,478,149" onclick="myFunction('Shoulders')">
+    <area shape="rect" coords="129,146,259,188" onclick="myFunction('Chest')">
+    <!--Yellow-->
+    <area shape="rect" coords="114,318,155,193" onclick="myFunction('Right Arm')">
+    <area shape="rect" coords="234,189,274,318" onclick="myFunction('Left Arm')">
+    <area shape="rect" coords="333,316,368,189" onclick="myFunction('Left Arm')">
+    <area shape="rect" coords="457,206,493,318" onclick="myFunction('Right Arm')">
+
+
+    <!--Light Green-->
+    <area shape="rect" coords="155,191,232,260" onclick="myFunction('Abdomin')">
+    <area shape="rect" coords="172,275,214,311" onclick="myFunction('Mid to Lower Back')">
+
+    <!--Green-->
+    <area shape="rect" coords="147,314,164,264" onclick="myFunction('Right Hip')">
+    <area shape="rect" coords="225,264,241,310" onclick="myFunction('Left Hip')">
+    <area shape="rect" coords="368,264,462,330" onclick="myFunction('Behind')">
+
+    <!--Magenta-->
+    <area shape="rect" coords="97,318,139,376" onclick="myFunction('Right Hand')">
+    <area shape="rect" coords="250,319,292,376" onclick="myFunction('Left Hand')">
+    <area shape="rect" coords="312,318,357,377" onclick="myFunction('Left Hand')">
+    <area shape="rect" coords="470,322,514,374" onclick="myFunction('Right Hand')">
+    <!--Blue-->
+    <area shape="rect" coords="144,312,233,555" onclick="myFunction('Legs')">
+    <area shape="rect" coords="370,329,457,559" onclick="myFunction('Legs')">
+
+    <!--Purple-->
+    <area shape="rect" coords="167,551,240,585" onclick="myFunction('Feet')">
+    <area shape="rect" coords="366,558,463,582" onclick="myFunction('Feet')">
+
+
+</map>
+
+<script>
+    function myFunction(part) {
+
+
+        if (confirm("Add Symptom for " + part)) {
+            window.location.href = "/Symptom/Index?where=" + part;
+        }
+    }
+
+</script>
+

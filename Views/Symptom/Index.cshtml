@@ -1,0 +1,40 @@
+﻿@model SymTom.ViewModels.AddSymptomViewModel
+
+
+
+
+<h1>Add Your Symptom</h1>
+
+
+
+<form asp-controller="Symptom" asp-action="Add" method="post">
+
+    <div class="form-group">
+        <label asp-for="Location"></label>
+        <input class="form-control" value='@Context.Request.Query["where"]' asp-for="Location" />
+        <span asp-validation-for="Location"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Severity"></label>
+        <input class="form-control" asp-for="Severity" />
+        <span asp-validation-for="Severity"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input class="form-control" asp-for="Date">
+        <span asp-validation-for="Date"></span>
+    </div>
+
+
+    <input class="btn btn-primary btn-sm"type="submit" value="Add Symptom" />
+
+</form>
+

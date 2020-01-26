@@ -1,0 +1,13 @@
+﻿<h1>@ViewBag.Title</h1>
+
+<form method="post">
+
+    @foreach (var symptom in ViewBag.symptoms)
+    {
+        <input type="checkbox" name="symptomIds" id="@symptom.ID" value="@symptom.ID" />
+        <label for="@symptom.ID">@symptom.Name @symptom.Location</label>
+        <br />
+    }
+
+    <input type="submit" value="Remove Selected Symptom(s)" />
+</form>
