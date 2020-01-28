@@ -10,27 +10,35 @@
 
 
 
-<table class="table table-bordered  table-striped ">
 
-    <tr>
-        <th>Location</th>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Severity</th>
-    </tr>
+    <table class="table table-bordered  table-striped ">
 
-    @foreach (var symptom in Model)
-    {
         <tr>
-            <td>@symptom.Location</td>
-            <td>@symptom.Name</td>
-            <td>@symptom.Date</td>
-            <td>@symptom.Severity</td>
+            <th>Location</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Severity</th>
         </tr>
-    }
-</table>
 
+        @foreach (var symptom in Model)
+        {
+            <tr>
+                <td>@symptom.Location</td>
+                <td>@symptom.Name</td>
+                <td>@symptom.Date</td>
+                <td>@symptom.Severity</td>
+            </tr>
+        }
+    </table>
 
 <p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Add">Add Symptom</a>
-<p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Remove">Remove Symptom</a></p>
-<p><a class="btn btn-outline-primary btn-sm" asp-controller="SMS" asp-action="Send">Send My Symptom(s)</a></p>
+<p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Remove">Remove Symptom</a>
+<p><a class="btn btn-outline-primary btn-sm" asp-controller="SMS" asp-action="Send">Send My Symptom(s)</a>
+
+
+@using (Html.BeginForm("Index", "CreatePdf"))
+{
+    <button class="btn btn-outline-primary btn-sm" id="submitButton" type="submit">Create Pdf</button>
+
+}
+    </p>

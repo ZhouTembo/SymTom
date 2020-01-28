@@ -31,7 +31,7 @@ namespace SymTom.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Severity");
+                    b.Property<string>("Severity");
                         
                     b.HasKey("ID");
 
