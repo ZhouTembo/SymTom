@@ -80,9 +80,9 @@ namespace SymTom.Controllers
             }
 
             context.SaveChanges();
-            IList<Symptom> symptoms = context.Symptoms.ToList();
+           
 
-            return View(symptoms);
+            return Redirect("/Symptom/List");
         }
 
         
