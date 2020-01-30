@@ -58,27 +58,36 @@ namespace SymTom.Controllers
 
                 }
 
-
+                symptom.HorizontalAlignment = Element.ALIGN_CENTER;
 
             }//declare new table
              //col 1 row 3
             string url = "https://doctorfreedompodcast.podbean.com/mf/web/4pmf3k/2-doctors-x-ray.jpg";
             Image img = Image.GetInstance(url);
-            img.ScaleToFit(1000f, 1000f);
+            img.ScaleToFit(800f, 800f);
+            img.HasBorders();
+            
             img.ScaleAbsolute(500f, 500f);
+            img.Alignment = Element.ALIGN_CENTER;
 
 
             Font font = new Font(FontFamily.HELVETICA, 20, Font.BOLD);
+            Font stew = new Font(FontFamily.HELVETICA, 16, Font.BOLD, BaseColor.RED);
 
 
-            Paragraph header= new Paragraph("List of Symptoms",font);
+            Paragraph header = new Paragraph("List of Symptoms",font);
             header.Alignment=Element.ALIGN_CENTER;
             header.SetLeading(18,0);
-            
+
+            Paragraph sent = new Paragraph("Remember to speak with your physician about these symptoms at your next appointment.", stew);
+            sent.Alignment = Element.ALIGN_CENTER;
+
+
             pdfDoc.Add(header);
             pdfDoc.Add(Chunk.NEWLINE);
             pdfDoc.Add(symptom);
-            pdfDoc.Add(new Paragraph("Remember to speak with your physician about these symptoms at your next appointment."));
+            pdfDoc.Add(Chunk.NEWLINE);
+            pdfDoc.Add(sent);
             pdfDoc.Add(img);
             pdfDoc.Close();
             
