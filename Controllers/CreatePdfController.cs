@@ -36,12 +36,18 @@ namespace SymTom.Controllers
             PdfPTable symptom = new PdfPTable(4); 
             {
                 Font hope = new Font(FontFamily.COURIER, 16, Font.BOLD);
-
-                symptom.AddCell("Location"); //col 1 row 1
                 
-                symptom.AddCell("Symptom"); //col 2 row 1
-                symptom.AddCell("Date"); //col 1 row 2
-                symptom.AddCell("Severity"); //col 2 row 2
+
+                Paragraph loc = new Paragraph("Location", hope);
+                Paragraph sym = new Paragraph("Symptom", hope);
+                Paragraph dat = new Paragraph("Date", hope);
+                Paragraph sev = new Paragraph("Severity", hope);
+
+                symptom.AddCell(loc); //col 1 row 1
+                
+                symptom.AddCell(sym); //col 2 row 1
+                symptom.AddCell(dat); //col 1 row 2
+                symptom.AddCell(sev); //col 2 row 2
                 
                 foreach (var item in symptoms)
                 {
