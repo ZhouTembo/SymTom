@@ -66,9 +66,8 @@ namespace SymTom.Controllers
         }
          public IActionResult Remove()
         {
-            ViewBag.title = "Remove Symptoms";
-            ViewBag.symptoms = context.Symptoms.ToList();
-            return View();
+            IList<Symptom> symptoms = context.Symptoms.ToList();
+            return View(symptoms);
         }
 
         [HttpPost]
@@ -81,8 +80,9 @@ namespace SymTom.Controllers
             }
 
             context.SaveChanges();
+            IList<Symptom> symptoms = context.Symptoms.ToList();
 
-            return Redirect("/Symptom/List");
+            return View(symptoms);
         }
 
         
