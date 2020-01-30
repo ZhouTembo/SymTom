@@ -2,39 +2,61 @@
 
 
 
-
-<h1>Add Your Symptom</h1>
-
-
-
-<form asp-controller="Symptom" asp-action="Add" method="post">
-
-    <div class="form-group">
-        <label asp-for="Location"></label>
-        <input class="form-control" value='@Context.Request.Query["where"]' asp-for="Location" />
-        <span asp-validation-for="Location"></span>
+    <div class="modal-header align-content-center">
+        <h1 >Add Your Symptom</h1>
     </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form asp-controller="Symptom" asp-action="Add" method="post">
 
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name" placeholder="e.g. Throbbing, Tingling, Burning, etc."/>
-        <span asp-validation-for="Name"></span>
+                <div class="form-group">
+                    <label asp-for="Location"></label>
+                    <input class="form-control" value='@Context.Request.Query["where"]' asp-for="Location" disabled>
+                    <span asp-validation-for="Location"></span>
+                </div>
+
+
+                <div class="form-group">
+                    
+                    <i class="fa fa-heartbeat" ></i>
+                    <label asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name" placeholder="e.g. Throbbing, Tingling, Burning, etc." />
+                    <span asp-validation-for="Name"></span>
+                    
+                </div>
+                <div class="form-group">
+                    <label asp-for="Severity"></label>
+                    <input type="range" class="form-control-range" min="0" max="10" asp-for="Severity" placeholder="e.g. 1-10" />
+                    <span asp-validation-for="Severity"></span>
+                    
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Date"></label>
+                    <input class="form-control" asp-for="Date ">
+                    <span asp-validation-for="Date"></span>
+                </div>
+
+
+                <input class="btn btn-primary btn-sm" type="submit" value="Add Symptom" />
+
+
+            </form>
+        </div>
+        <div class="col">
+            <div class="card badge-secondary ">
+                <div class="card-header">Please help me understand what the symptom is like.</div>
+                <div class="card-body">-Does it burn or tingle?</div>
+
+                <div class="card-body">-Rate your symptom:<br />Left being the least and right being the worst.</div>
+
+                <div class="card-body">-Select the date that you first noticed the symptom.</div>
+            </div>
+            
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Severity"></label>
-        <input class="form-control" asp-for="Severity" placeholder="e.g. 1-10"/>
-        <span asp-validation-for="Severity"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Date"></label>
-        <input class="form-control" asp-for="Date ">
-        <span asp-validation-for="Date"></span>
-    </div>
-
-
-    <input class="btn btn-primary btn-sm"type="submit" value="Add Symptom" />
-
-</form>
+</div>
 

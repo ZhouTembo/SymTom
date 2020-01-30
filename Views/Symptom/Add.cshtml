@@ -8,8 +8,11 @@
 
 <map name="bodymap">
     <!--Pink-->
-    <area shape="circle" coords="194,90,15" onclick="myFunction('Head')">
-    <area shape="circle" coords="413,77,15" onclick="myFunction('Head')">
+    <div class="tooltip">
+        <area shape="circle" coords="194,90,15" onclick="myFunction('Head')">
+        <area shape="circle" coords="413,77,15" onclick="myFunction('Head')">
+        <span class="tooltiptext">Tooltip text</span>
+    </div>
     <!--Hot Pink-->
     <area shape="rect" coords="151,116,242,141" onclick="myFunction('Neck')">
     <area shape="rect" coords="367,143,460,112" onclick="myFunction('Neck')">
@@ -51,12 +54,22 @@
 
 <script>
     function myFunction(part) {
-
-
-        if (confirm("Add Symptom for " + part)) {
+      var txt;
+      var symp = prompt("Are you sure you would like to add a symptom under:", part);
+        if (symp == null || symp == "") {
+        window.alert("Must have body part!");
+        } 
+        else  {
             window.location.href = "/Symptom/Index?where=" + part;
         }
     }
 
 </script>
+
+<div class="card-deck float-right border-secondary">
+    <div class="card">
+        <div class="card-header">Click the area where the symptom is.</div>
+        <div class="card-body">Multiselect will be coming to soon,<br /> but until then we will add one symptom at a time.</div>
+    </div>
+</div>
 

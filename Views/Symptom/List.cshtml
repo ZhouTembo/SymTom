@@ -11,14 +11,15 @@
 
 
 
-    <table class="table table-bordered  table-striped ">
-
+<table class="table table-bordered  table-striped ">
+    <thead class="thead-dark">
         <tr>
             <th>Location</th>
             <th>Name</th>
             <th>Date</th>
             <th>Severity</th>
         </tr>
+    </thead>
 
         @foreach (var symptom in Model)
         {
@@ -29,16 +30,17 @@
                 <td>@symptom.Severity</td>
             </tr>
         }
-    </table>
+</table>
 
-<p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Add">Add Symptom</a>
-<p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Remove">Remove Symptom</a>
-<p><a class="btn btn-outline-primary btn-sm" asp-controller="SMS" asp-action="Send">Send My Symptom(s)</a>
+    <div class="btn-group">
 
+        <p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Add">Add Symptom</a>
+        <p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Remove">Remove Symptom</a>
+        <p>
+            @using (Html.BeginForm("Index", "CreatePdf"))
+            {
+                <button class="btn btn-outline-primary btn-sm" id="submitButton" type="submit">Create Pdf</button>
 
-@using (Html.BeginForm("Index", "CreatePdf"))
-{
-    <button class="btn btn-outline-primary btn-sm" id="submitButton" type="submit">Create Pdf</button>
-
-}
-    </p>
+            }
+        </p>
+     </div>
