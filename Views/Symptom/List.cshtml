@@ -1,25 +1,27 @@
 ﻿@model List<SymTom.Models.Symptom>
 
-<h1>All of Your Symptoms</h1>
+
+<div class="modal-header">
+    <h1 class="display-2">All of Your Symptoms</h1>
+</div>
 
 @if (Model.Count == 0)
 {
     <p>No Symptoms Saved!</p>
 }
 
+@if (Model.Count >= 1)
+{
 
-
-
-
-<table class="table table-bordered  table-striped ">
-    <thead class="thead-dark">
-        <tr>
-            <th>Location</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Severity</th>
-        </tr>
-    </thead>
+    <table class="table table-bordered  table-striped shadow ">
+        <thead class="thead-dark">
+            <tr>
+                <th>Location</th>
+                <th>Symptom</th>
+                <th>Date</th>
+                <th>Severity</th>
+            </tr>
+        </thead>
 
         @foreach (var symptom in Model)
         {
@@ -30,17 +32,18 @@
                 <td>@symptom.Severity</td>
             </tr>
         }
-</table>
+    </table>
 
-    <div class="btn-group">
+    <div class="btn-toolbar align-bottom ">
 
-        <p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Add">Add Symptom</a>
-        <p><a class="btn btn-outline-primary btn-sm" asp-controller="Symptom" asp-action="Remove">Remove Symptom</a>
+        <p><a class="btn btn-outline-primary btn-sm shadow" asp-controller="Symptom" asp-action="Add">Add Symptom</a>
+        <p><a class="btn btn-outline-primary btn-sm shadow" asp-controller="Symptom" asp-action="Remove">Remove Symptom</a>
         <p>
             @using (Html.BeginForm("Index", "CreatePdf"))
             {
-                <button class="btn btn-outline-primary btn-sm" id="submitButton" type="submit">Create Pdf</button>
+                <button class="btn btn-outline-primary btn-sm shadow" id="submitButton" type="submit">Create Pdf</button>
 
             }
         </p>
-     </div>
+    </div>
+    }

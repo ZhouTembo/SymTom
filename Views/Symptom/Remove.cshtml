@@ -1,13 +1,39 @@
 ﻿<h1>@ViewBag.Title</h1>
 
-<form method="post">
+<form method="post" class="shadow">
+    <table class="table table-bordered  table-striped shadow ">
+        <thead class="thead-dark">
+            <tr>
+                <th>Selected</th>
+                <th>Location</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Severity</th>
+            </tr>
+        </thead>
+        @foreach (var symptom in ViewBag.symptoms)
+        {
+            <tr>
+                <td><input type="checkbox" name="symptomIds" id="@symptom.ID" value="@symptom.ID" /></td>
+                <td>@symptom.Location</td>
+                <td>@symptom.Name</td>
+                <td>@symptom.Date</td>
+                <td>@symptom.Severity</td>
+            </tr>
+        }
 
-    @foreach (var symptom in ViewBag.symptoms)
-    {
-        <input type="checkbox" name="symptomIds" id="@symptom.ID" value="@symptom.ID" />
-        <label for="@symptom.ID">@symptom.Name @symptom.Location</label>
-        <br />
-    }
 
-    <input type="submit" value="Remove Selected Symptom(s)" />
+    </table>
+
+    <input  type="submit" onclick="myFunction()" value="Remove Selected Symptom(s)" />
 </form>
+
+<script>
+            function myFunction() {
+               
+                if (confirm("Are you sure you would like to remove selected symptom(s)?")) {
+                    window.location.href = "/Symptom/Index?where=" + part;
+                }
+            }
+
+</script>
