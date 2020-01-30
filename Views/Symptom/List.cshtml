@@ -26,28 +26,37 @@
 
 @if (Model.Count >= 1)
 {
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="table table-bordered  table-striped shadow ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Location</th>
+                            <th>Symptom</th>
+                            <th>Date</th>
+                            <th>Severity</th>
+                        </tr>
+                    </thead>
 
-    <table class="table table-bordered  table-striped shadow ">
-        <thead class="thead-dark">
-            <tr>
-                <th>Location</th>
-                <th>Symptom</th>
-                <th>Date</th>
-                <th>Severity</th>
-            </tr>
-        </thead>
+                    @foreach (var symptom in Model)
+                    {
+                        <tr>
+                            <td>@symptom.Location</td>
+                            <td>@symptom.Name</td>
+                            <td>@symptom.Date</td>
+                            <td>@symptom.Severity</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="col">
+                <iframe class="shadow border-secondary" src="https://healthfinder.gov/myhealthfinder/widget/" name="myhealthfinderframe" frameborder="1" id="myhealthfinderframe" scrolling="yes" height="385" width="100%" marginheight="0" title="myhealthfinder widget" marginwidth="0"></iframe>
+            </div>
 
-        @foreach (var symptom in Model)
-        {
-            <tr>
-                <td>@symptom.Location</td>
-                <td>@symptom.Name</td>
-                <td>@symptom.Date</td>
-                <td>@symptom.Severity</td>
-            </tr>
-        }
-    </table>
-
+        </div>
+    </div>
+ 
     <div class="btn-toolbar align-bottom ">
 
         <p><a class="btn btn-outline-primary btn-sm shadow" asp-controller="Symptom" asp-action="Add">Add Symptom</a>
@@ -60,4 +69,5 @@
             }
         </p>
     </div>
-}
+    
+ }
